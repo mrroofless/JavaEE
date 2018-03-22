@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <body>
+
+        <ui:composition template="./Template.xhtml">
+
+            <ui:define name="top">
+                <center><h1>Регистрация нового клиента</h1></center>
+            </ui:define>
+
+            <ui:define name="left">
+               <h:form> <center>
+                         </center>
+                </h:form>
+            </ui:define>
+
+            <ui:define name="content">
+               <br />
+        <h:form>
+            Ваша фамилия:<br />
+            <h:inputText value="#{insuranceMBean.client.surname}"></h:inputText><br />
+            Ваше имя:<br />
+            <h:inputText value="#{insuranceMBean.client.name}"></h:inputText><br />
+            Ваше отчество:<br />
+            <h:inputText value="#{insuranceMBean.client.patronymic}"></h:inputText><br />
+            Ваш возраст:<br />
+            <h:inputText value="#{insuranceMBean.client.age}"></h:inputText><br />
+            Опыт вождения лет(числом):<br />
+            <h:inputText value="#{insuranceMBean.client.experience}"></h:inputText><br />
+            Серия и номер паспорта:<br />
+            <h:inputText value="#{insuranceMBean.client.ratings}"></h:inputText><br />
+            Ваш адрес:<br />
+            <h:inputText value="#{insuranceMBean.client.address}"></h:inputText><br />
+            Ваш номер телефона:<br />
+            <h:inputText value="#{insuranceMBean.client.telephone}"></h:inputText><br />
+            Ваш электронный адрес:<br />
+            <h:inputText  value="#{insuranceMBean.client.email}"></h:inputText><br />
+            Укажите пароль для Вашей учетной записи:<br />
+            <h:inputSecret value="#{insuranceMBean.client.password}"></h:inputSecret><br />
+            <h:commandButton action="#{insuranceMBean.addClientInDB()}" value="Зарегистрироваться!"></h:commandButton>
+
+        </h:form>
+            </ui:define>
+
+            <ui:define name="bottom">
+                <center><h3>© 2012 Larin A.A. All Rights Reserved</h3></center>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

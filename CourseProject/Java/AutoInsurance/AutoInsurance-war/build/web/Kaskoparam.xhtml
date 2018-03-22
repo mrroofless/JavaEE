@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <body>
+
+        <ui:composition template="./Template.xhtml">
+
+            <ui:define name="top">
+               <center><h3>Выберите параметры КАСКО </h3></center>
+            </ui:define>
+
+            <ui:define name="left">
+                <h:form> <center>
+                        <a href="Start.xhtml">Главная страница</a><br />
+                        <a href="Auto.xhtml">Оформить заявку на полис</a><br />
+                        
+                         </center>
+                </h:form>
+            </ui:define>
+
+            <ui:define name="content">
+                <br />
+            <h:form>
+            Введите франшизу (руб):<br />
+            <h:inputText value="0"></h:inputText><br />
+
+Выберите противоугонный комплекс:<br />
+            <h:selectOneMenu value="prot">
+                <f:selectItem itemLabel="Alligator" itemValue="Alligator"/>
+                <f:selectItem itemLabel="Centurion" itemValue="Centurion"/>
+                <f:selectItem itemLabel="Mystery" itemValue="Mystery"/>
+            </h:selectOneMenu><br />
+
+            Выберите тип страхуемого риска:<br />
+            <h:selectOneMenu value="risk"> 
+                <f:selectItem itemLabel="Ущерб" itemValue="Ущерб"/>
+                <f:selectItem itemLabel="Угон+Ущерб" itemValue="Угон+Ущерб"/>      
+            </h:selectOneMenu><br />
+            
+            <h:commandButton action="#{TestBean.toInscount}" value="Далее"></h:commandButton>
+            </h:form>
+            </ui:define>
+
+            <ui:define name="bottom">
+               <center><h3>© 2012 Larin A.A. All Rights Reserved</h3></center>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

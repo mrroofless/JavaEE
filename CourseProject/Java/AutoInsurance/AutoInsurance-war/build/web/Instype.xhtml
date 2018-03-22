@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <body>
+
+        <ui:composition template="./Template.xhtml">
+
+            <ui:define name="top">
+               <center><h3>Выбор параметров страховки </h3></center>
+            </ui:define>
+
+            <ui:define name="left">
+                <h:form> <center>
+                        <a href="Start.xhtml">Главная страница</a><br />
+                        <a href="Auto.xhtml">Оформить заявку на полис</a><br />
+                        
+                         </center>
+                </h:form>
+            </ui:define>
+
+            <ui:define name="content">
+                <br />
+            <h:form>
+            Выберите тип страхования:<br />
+            <h:selectOneMenu value="type">
+                <f:selectItem itemLabel="КАСКО" itemValue="КАСКО"/>
+                <f:selectItem itemLabel="ОСАГО" itemValue="ОСАГО"/>
+            </h:selectOneMenu><br />
+            
+
+            <h:commandButton action="#{TestBean.toKaskoparam}" value="Далее"></h:commandButton>
+            </h:form>
+            </ui:define>
+
+            <ui:define name="bottom">
+               <center><h3>© 2012 Larin A.A. All Rights Reserved</h3></center>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
