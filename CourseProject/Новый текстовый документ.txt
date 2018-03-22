@@ -1,0 +1,67 @@
+create database auto_insurance;
+use auto_insurance;
+
+CREATE TABLE clients
+(
+	id_client  INTEGER AUTO_INCREMENT NOT NULL,
+	surname  CHAR(30),
+	name  CHAR(18),
+	patronymic  CHAR(18),
+	address  CHAR(40),
+	telephone  CHAR(18),
+	email  CHAR(18),
+	password  CHAR(18),
+	age  INTEGER,
+	experience  INTEGER,
+	ratings  CHAR(10),
+	insecure  boolean,
+	 PRIMARY KEY (id_client)
+)
+;
+
+
+
+CREATE TABLE cars
+(
+	vin_code  CHAR(17) NOT NULL,
+	id_client  INTEGER NOT NULL,
+	brand  CHAR(18) NULL,
+	model  CHAR(18) NULL,
+	power  INTEGER NULL,
+	release_date  INTEGER NULL,
+	 PRIMARY KEY (vin_code), FOREIGN KEY (id_client) REFERENCES clients(id_client) ON DELETE CASCADE ON UPDATE CASCADE
+)
+;
+
+
+
+
+CREATE TABLE osago
+(
+	id_policy  INTEGER AUTO_INCREMENT NOT NULL,
+        vin_code CHAR(17) NOT NULL,
+	age_factor  DOUBLE NULL,
+	exp_factor  DOUBLE NULL,
+	power_factor  DOUBLE NULL,
+	 PRIMARY KEY (id_policy), FOREIGN KEY (vin_code) REFERENCES cars(vin_code) ON DELETE CASCADE ON UPDATE CASCADE
+)
+;
+
+
+
+CREATE TABLE calculation
+(
+	id_calc  INTEGER AUTO_INCREMENT NOT NULL,
+	id_policy  INTEGER NULL,
+	term_of_insurance  INTEGER NULL,
+	total_sum  DOUBLE NULL,
+	 PRIMARY KEY (id_calc),
+	FOREIGN KEY (id_policy) REFERENCES osago(id_policy) ON DELETE CASCADE ON UPDATE CASCADE
+)
+;
+
+insert into osago (age_factor, exp_factor, power_factor) values (1.5, 1.2, 1.7);
+
+drop database auto_insurance;
+
+@NamedQuery(name = "Clients.findClientIdByEmail", query = "SELECT c.idClient FROM Clients c WHERE c.email = :email"),
